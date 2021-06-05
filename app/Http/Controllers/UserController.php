@@ -41,6 +41,7 @@ class UserController extends Controller
         $users = new User;
             $users->name = $request->name;
             $users->email = $request->email;
+            $users->phone = $request->phone;
             $users->password = md5($request->name);
             $users->is_admin = $request->is_admin;
             $users->save();

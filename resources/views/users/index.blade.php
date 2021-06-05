@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="col-lg-12">
             <div class="row">
                 <div class="col-md-9">
@@ -10,7 +10,7 @@
                         <div class="card-header">
                             <h4 style="float: left">Add User</h4> 
                             <a href="#" style="float: right" class="btn btn-dark" data-toggle="modal" data-target="#addUser">
-                                <i class="fa fa-plus"></i>Add New User</a></div>
+                                <i class="fa fa-plus"></i> Add New User</a></div>
                             <div class="card-body">
                                 <table class="table table-bordered table-left">
                                     <thead>
@@ -20,6 +20,7 @@
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Role</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -48,7 +49,7 @@
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                       <span aria-hidden="true">&times;</span>
                                                   </button>
-                                                 {{ $user->id }}
+                                                 
                                                 </div>
                                                 <div class="modal-body">
                                                     <form action="{{ route('users.update', $user->id) }}" method="post">
@@ -62,10 +63,10 @@
                                                             <label for="">Email</label>
                                                             <input type="email" name="email" id="" value="{{ $user->email }}" class="form-control" >
                                                         </div>
-                                                        {{-- <div class="form-group">
+                                                        <div class="form-group">
                                                             <label for="">Phone</label>
                                                             <input type="text" name="phone" id="" value="{{ $user->phone }}" class="form-control" >
-                                                        </div> --}}
+                                                        </div>
                                                         <div class="form-group">
                                                             <label for="">Password</label>
                                                             <input type="password" name="password" id="" readonly value="{{ $user->password }}" class="form-control" >
@@ -120,6 +121,7 @@
                                           </div>
 
                                         @endforeach
+                                        {{ $users->links() }}
                                     </tbody>
                                 </table>
                             </div>
